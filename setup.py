@@ -53,11 +53,9 @@ setup(
     packages=find_packages(__min_pkg_path__ + '/python/src'),
     package_dir={'': __min_pkg_path__ + '/python/src'},
     package_data={
-        'AIPUBuilder': [
-            "*/*/*.so",
-            "*/*.so",
-            "*/*.a",
-            "*.so"
+        '': [
+            "*.so",
+            "*.a"
         ]
     },
     install_requires=[
