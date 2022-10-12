@@ -12,7 +12,7 @@ You need [Clone](armchina/somewhere) repositories under this directory.
 git clone Compass_Unified_Parser.... TODO: add which url?
 ```
 
-You need [download](armchina/somewhere) minpackage under this.
+You need [download](armchina/somewhere) minpackage under this directory.
 
 ```bash
 wget Compass_MiniPkg-0.1.1-Linux.tar.gz TODO: add which url?
@@ -26,7 +26,7 @@ Compass Integration project work on ``Linux-amd64`` only
 
 ### Software
 
-* python == 3.8.5
+* python = 3.8
 
 ## Build
 

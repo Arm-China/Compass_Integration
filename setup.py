@@ -11,7 +11,7 @@ __build_number__ = os.getenv("BUILD_NUMBER")
 __min_pkg_path__ = os.getenv("MINIPKG_PATH")
 if __build_number__ is not None and len(__build_number__) != 0:
     if not __VERSION__.endswith("."+str(__build_number__)):
-        __VERSION__ = __VERSION__+"."+str(__build_number__)
+        __VERSION__ = __VERSION__+".open"+str(__build_number__)
     init_file = ["AIPUBuilder", "AIPUBuilder/UnifiedParser"]
     for init_f in init_file:
         init_f = os.path.join(__min_pkg_path__, "python", "src", init_f, "__init__.py")
