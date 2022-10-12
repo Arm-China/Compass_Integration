@@ -10,7 +10,7 @@ __VERSION__ = AIPUBuilder.__VERSION__
 __build_number__ = os.getenv("BUILD_NUMBER")
 __min_pkg_path__ = os.getenv("MINIPKG_PATH")
 if __build_number__ is not None and len(__build_number__) != 0:
-    if not __VERSION__.endswith("."+str(__build_number__)):
+    if not __VERSION__.endswith(".open"+str(__build_number__)):
         __VERSION__ = __VERSION__+".open"+str(__build_number__)
     init_file = ["AIPUBuilder", "AIPUBuilder/UnifiedParser"]
     for init_f in init_file:
@@ -18,7 +18,7 @@ if __build_number__ is not None and len(__build_number__) != 0:
         with open(init_f) as f:
             c = f.read()
             c = re.sub("__build_number__\s*=.+",
-                       "__build_number__="+__build_number__, c)
+                       "__build_number__='"+__build_number__+"'", c)
         if len(c) != 0:
             with open(init_f, "w") as f:
                 f.write(c)
