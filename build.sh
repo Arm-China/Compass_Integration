@@ -17,13 +17,13 @@ rm -rf ${MINIPKG_PATH} # clean last build
 tar -xzvf ${MINIPKG_TAR_GZ}
 
 # link your UnifiedParser
-cd ${MINIPKG_PATH}/python/src/AIPUBuilder
+cd ${MINIPKG_PATH}/AIPUBuilder/python/src/AIPUBuilder
 ls ../../../../Compass_Unified_Parser/UnifiedParser # check exist
 ln -sf ../../../../Compass_Unified_Parser/UnifiedParser
 cd -
 
 # Test AIPUBuilder avaliable
-export PYTHONPATH=`pwd`/${MINIPKG_PATH}/python/src:${PYTHONPATH}
+export PYTHONPATH=`pwd`/${MINIPKG_PATH}/AIPUBuilder/python/src:${PYTHONPATH}
 echo "Building AIPUBuilder under:"
 python3 -c "import AIPUBuilder;print(AIPUBuilder.__file__)"
 
