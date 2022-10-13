@@ -18,8 +18,8 @@ tar -xzvf ${MINIPKG_TAR_GZ}
 
 # link your UnifiedParser
 cd ${MINIPKG_PATH}/AIPUBuilder/python/src/AIPUBuilder
-ls ../../../../Compass_Unified_Parser/UnifiedParser # check exist
-ln -sf ../../../../Compass_Unified_Parser/UnifiedParser
+ls ../../../../../Compass_Unified_Parser/UnifiedParser # check exist
+ln -sf ../../../../../Compass_Unified_Parser/UnifiedParser
 cd -
 
 # Test AIPUBuilder avaliable
