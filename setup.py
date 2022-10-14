@@ -10,11 +10,12 @@ __VERSION__ = AIPUBuilder.__VERSION__
 __build_number__ = os.getenv("BUILD_NUMBER")
 __min_pkg_path__ = os.getenv("MINIPKG_PATH")
 if __build_number__ is not None and len(__build_number__) != 0:
-    if not __VERSION__.endswith(".open"+str(__build_number__)):
-        __VERSION__ = __VERSION__+".open"+str(__build_number__)
+    __build_number__ = ".open" + __build_number__
+    __VERSION__ = __VERSION__ + str(__build_number__)
     init_file = ["AIPUBuilder", "AIPUBuilder/UnifiedParser"]
     for init_f in init_file:
-        init_f = os.path.join(__min_pkg_path__, "AIPUBuilder", "python", "src", init_f, "__init__.py")
+        init_f = os.path.join(__min_pkg_path__, "AIPUBuilder",
+                              "python", "src", init_f, "__init__.py")
         with open(init_f) as f:
             c = f.read()
             c = re.sub("__build_number__\s*=.+",
@@ -59,18 +60,28 @@ setup(
         ]
     },
     install_requires=[
-        "numpy",
-        "tensorflow>=1.13.1",
-        "opencv-python",
+        "clang",
+        "cloudpickle",
+        "decorator",
         "editdistance",
-        "torch>=1.5.0",
-        "networkx",
-        "pillow",
+        "future",
         "matplotlib",
-        "flatbuffers",
-        "onnx",
+        "networkx",
+        "onnx>=1.11",
         "onnxoptimizer",
         "onnx-simplifier",
+        "opencv-python",
+        "psutil",
+        "PyYAML",
+        "scipy",
+        "sympy",
+        "synr",
+        "tensorflow>=2.6"
+        "tflite"
+        "torch>=1.11",
+        "torchvision",
+        "tornado",
+        "tqdm"
     ],
     cmdclass={'bdist_wheel': bdist_wheel},
     entry_points=entry_points,
