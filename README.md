@@ -41,7 +41,7 @@ The `build.sh` script will build a [python wheel file]() under dist folder
 ## Install
 
 ```bash
-pip3 install dist/AIPUBuilder-.*-cp38-cp38-linux_x86_64.whl
+pip3 install dist/AIPUBuilder-*-cp38-cp38-linux_x86_64.whl
 # Tips: using pip3 install --user or --target /YOUR_PATH if your don't have root premission
 
 # if using --user, don't forget:
