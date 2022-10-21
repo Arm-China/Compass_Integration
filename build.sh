@@ -1,4 +1,6 @@
 #!/bin/bash -e
+# Copyright © 2022 Arm China Co. Ltd. All rights reserved.
+# SPDX-License-Identifier: Apache-2.0
 
 # find release files
 MINIPKG_TAR_GZ=`ls | sort -r | grep -m 1 "Compass_MiniPkg.*tar.gz"`

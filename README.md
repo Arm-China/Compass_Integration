@@ -1,4 +1,6 @@
-# Compass Integration Note
+# Compass Integration
+
+This project builds a distribution package from `Compass_Unified_Parser` and `Compass_MiniPkg`.
 
 ## Perpare
 
@@ -55,10 +57,10 @@ export PATH=${MINIPKG_PATH}/tool-chain/debugger/bin:${PATH}
 
 After installed, run the ./test.sh script check all modules work.
 
-```
+```bash
 ./test.sh
 ```
 
 ## Document
 
-See ${MINIPKG_PATH}/doc
+See /doc directory inside Compass_MiniPkg
