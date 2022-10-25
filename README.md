@@ -4,13 +4,13 @@ This project builds a distribution package from `Compass_Unified_Parser` and `Co
 
 ## Perpare
 
-You need [Clone](armchina/somewhere) repositories under this directory.
+You need clone [repositories](https://github.com/Arm-China) under this directory.
 
 ```bash
-git clone Compass_Unified_Parser.... TODO: add url
+git clone https://github.com/Arm-China/Compass_Unified_Parser.git
 ```
 
-You need [Download](armchina/somewhere) minpackage under this directory.
+You need download minpackage from <https://aijishu.com> under this directory.
 
 ```bash
 wget Compass_MiniPkg-x.x.x-Linux.tar.gz TODO: add url
