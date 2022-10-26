@@ -16,6 +16,7 @@ git clone https://github.com/Arm-China/Compass_Unified_Parser.git
 
 ## Requirements
 
+
 ### Hardware
 
 Compass Integration project work on ``Linux x86_64`` only
@@ -23,6 +24,8 @@ Compass Integration project work on ``Linux x86_64`` only
 ### Software
 
 * python = 3.8
+
+* wheel
 
 > See ./setup.py for details of python packages
 
