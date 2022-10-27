@@ -2,24 +2,23 @@
 
 This project builds a distribution package from `Compass_Unified_Parser` and `Compass_MiniPkg`.
 
-## Perpare
+## Prepare
 
-1. You need clone [repositories](https://github.com/Arm-China) under this directory.
+1. You need to clone [repositories](https://github.com/Arm-China) under this directory.
 
 ```bash
 git clone https://github.com/Arm-China/Compass_Unified_Parser.git
 ```
 
-2. You need download `minpackage` from <https://aijishu.com/a/1060000000215443> under this directory. For detailed download steps, please refer to the post.
+2. You need to download `minpackage` from <https://aijishu.com/a/1060000000215443> under this directory. For detailed download steps, please refer to the post.
 
 > The `minpackage` is a tarball file named Compass_MiniPkg-x.x.x-Linux.tar.gz
 
 ## Requirements
 
-
 ### Hardware
 
-Compass Integration project work on ``Linux x86_64`` only
+The Compass Integration project works on ``Linux x86_64`` only
 
 ### Software
 
@@ -28,7 +27,7 @@ Compass Integration project work on ``Linux x86_64`` only
 * setuptools
 * wheel
 
-> See ./setup.py for details of python packages
+> See ./setup.py for details of Python packages
 
 ## Build
 
@@ -36,7 +35,7 @@ Compass Integration project work on ``Linux x86_64`` only
 ./build.sh
 ```
 
-The `build.sh` script will build a **python wheel file** under "./dist" directory
+The `build.sh` script will build a **python wheel file** under the ./dist directory
 
 ## Install
 
@@ -57,7 +56,16 @@ export PATH=${MINIPKG_PATH}/tool-chain/debugger/bin:${PATH}
 
 ## Test
 
-After installed, run the ./test.sh script check all modules work.
+After installation, run the ./test.sh script to check that all modules work. This script briefly tests usability of aipucc, aipu_simulator, aipubuild. If you need to use the full functionality of the individual modules(IDE, simulator, toolchain). Please configure it in the corresponding documentation.
+
+e.g.
+
+The following lists libraries that are required for the aipucc:
+
+* libpthread.so.0
+* libz.so.1
+* libtinfo.so.5
+* ... (see full requirements indside document of minipkg/aipu-toolchain)
 
 ```bash
 ./test.sh
@@ -65,4 +73,4 @@ After installed, run the ./test.sh script check all modules work.
 
 ## Document
 
-See /doc directory inside Compass_MiniPkg
+See the documentation in the /doc directory inside Compass_MiniPkg
