@@ -24,7 +24,8 @@ Compass Integration project work on ``Linux x86_64`` only
 ### Software
 
 * python = 3.8
-
+* pip
+* setuptools
 * wheel
 
 > See ./setup.py for details of python packages

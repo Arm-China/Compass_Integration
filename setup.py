@@ -1,17 +1,29 @@
 # Copyright © 2022 Arm China Co. Ltd. All rights reserved.
 # SPDX-License-Identifier: Apache-2.0
 
-import AIPUBuilder
+import os
+import re
+
 from setuptools import setup, find_packages
 from distutils.core import setup
 from distutils.extension import Extension
+from wheel.bdist_wheel import bdist_wheel as _bdist_wheel
 
-import os
-import re
+import AIPUBuilder
+
+
+class bdist_wheel(_bdist_wheel):
+    def finalize_options(self):
+        _bdist_wheel.finalize_options(self)
+        self.root_is_pure = False
+
 
 __VERSION__ = AIPUBuilder.__VERSION__
 __build_number__ = os.getenv("BUILD_NUMBER")
 __min_pkg_path__ = os.getenv("MINIPKG_PATH")
+
+assert __min_pkg_path__, "Cannot find mini package path (MINIPKG_PATH) in env"
+
 if __build_number__ is not None and len(__build_number__) != 0:
     __build_number__ = ".open" + __build_number__
     __VERSION__ = __VERSION__ + str(__build_number__)
@@ -38,16 +50,6 @@ entry_points = """
     aipubinutils = AIPUBuilder.CGBuilder:aipubinutils
     aipu_profiler = AIPUBuilder.Profiler.main:main
     """
-
-try:
-    from wheel.bdist_wheel import bdist_wheel as _bdist_wheel
-
-    class bdist_wheel(_bdist_wheel):
-        def finalize_options(self):
-            _bdist_wheel.finalize_options(self)
-            self.root_is_pure = False
-except ImportError:
-    bdist_wheel = None
 
 setup(
     name="AIPUBuilder",
