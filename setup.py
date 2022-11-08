@@ -49,6 +49,7 @@ entry_points = """
     aipubuild = AIPUBuilder.main:main
     aipubinutils = AIPUBuilder.CGBuilder:aipubinutils
     aipu_profiler = AIPUBuilder.Profiler.main:main
+    aipugsim = AIPUBuilder.simplifier.main:main
     """
 
 setup(
