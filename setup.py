@@ -7,23 +7,33 @@ import re
 from setuptools import setup, find_packages
 from distutils.core import setup
 from distutils.extension import Extension
+from wheel.bdist_wheel import bdist_wheel
+
 import AIPUBuilder
 
 __VERSION__ = AIPUBuilder.__VERSION__
 # env from Jenkins
+__job_name__ = os.getenv("JOB_NAME")
 __build_number__ = os.getenv("BUILD_NUMBER")
 # env from build.sh
 __min_pkg_path__ = os.getenv("MINIPKG_PATH")
 
 assert __min_pkg_path__, "Cannot find mini package path (MINIPKG_PATH) in env"
 
-# __min_pkg_path__ e.g: 
+# __min_pkg_path__ e.g:
 # Compass_MiniPkg-Release-x.x.x-Linux
 # Compass_MiniPkg-Debug-x.x.x-Linux
 
 if __build_number__ is not None and len(__build_number__) != 0:
-    __build_number__ = ".open" + __build_number__
-    __VERSION__ = __VERSION__ + str(__build_number__)
+    # for internal release
+    if "Debug" in __min_pkg_path__:
+        __build_number__ = "dev" + __build_number__
+    elif "opensource" in __job_name__.lower():
+        __build_number__ = "open" + __build_number__
+
+    if __VERSION__.count('.') < 2: # 1.0 -> 1.0.xxx123
+        __VERSION__ = __VERSION__+ "." +str(__build_number__)
+
     init_file = ["AIPUBuilder", "AIPUBuilder/Parser"]
     for init_f in init_file:
         init_f = os.path.join(__min_pkg_path__, "AIPUBuilder",
