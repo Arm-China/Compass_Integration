@@ -7,7 +7,13 @@ import re
 from setuptools import setup, find_packages
 from distutils.core import setup
 from distutils.extension import Extension
-from wheel.bdist_wheel import bdist_wheel
+from wheel.bdist_wheel import bdist_wheel as _bdist_wheel
+
+# Mark us as not a pure python package (we have platform specific C/C++ code)
+class bdist_wheel(_bdist_wheel):
+    def finalize_options(self):
+        _bdist_wheel.finalize_options(self)
+        self.root_is_pure = False
 
 import AIPUBuilder
 
