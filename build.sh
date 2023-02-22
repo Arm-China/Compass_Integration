@@ -15,13 +15,23 @@ if [ ! -d "Compass_Unified_Parser" ]; then
     exit 1
 fi
 
+if [ ! -d "Compass_OpportunePostTrainingTools" ]; then
+    echo "Cannot find repository Compass_OpportunePostTrainingTools, please download it"
+    exit 1
+fi
+
 rm -rf ${MINIPKG_PATH} # clean last build
 tar -xzvf ${MINIPKG_TAR_GZ}
 
-# link your UnifiedParser
 cd ${MINIPKG_PATH}/AIPUBuilder/python/src/AIPUBuilder
-ls ../../../../../Compass_Unified_Parser/UnifiedParser # check exist
-ln -sf ../../../../../Compass_Unified_Parser/UnifiedParser
+
+# link your Parser
+ls ../../../../../Compass_Unified_Parser/AIPUBuilder/Parser # check exist
+ln -sf ../../../../../Compass_Unified_Parser/AIPUBuilder/Parser
+
+# link your Optimizer
+ls ../../../../../Compass_OpportunePostTrainingTools/AIPUBuilder/Optimizer # check exist
+ln -sf ../../../../../Compass_OpportunePostTrainingTools/AIPUBuilder/Optimizer
 cd -
 
 # Test AIPUBuilder avaliable

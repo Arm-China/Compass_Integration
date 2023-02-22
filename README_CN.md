@@ -1,6 +1,6 @@
 # Compass Integration
 
-本项目用于构建可发布的软件包，软件内容来自 Compass_Unified_Parser 仓库和 Compass_MiniPkg 。
+本项目用于构建可发布的软件包，软件内容来自 Compass_Unified_Parser 仓库 Compass_OpportunePostTrainingTools 仓库 和 Compass_MiniPkg 。
 
 ## 准备事项
 
@@ -8,6 +8,7 @@
 
 ```bash
 git clone https://github.com/Arm-China/Compass_Unified_Parser.git
+git clone https://github.com/Arm-China/Compass_OpportunePostTrainingTools.git
 ```
 
 你需要下载 minpackage 至仓库根目录，下载步骤请参考文章 https://aijishu.com/a/1060000000215443 。

@@ -1,6 +1,6 @@
 # Compass Integration
 
-This project builds a distribution package from `Compass_Unified_Parser` and `Compass_MiniPkg`.
+This project builds a distribution package from `Compass_Unified_Parser`, `Compass_OpportunePostTrainingTools` and `Compass_MiniPkg`.
 
 ## Prepare
 
@@ -8,6 +8,7 @@ This project builds a distribution package from `Compass_Unified_Parser` and `Co
 
 ```bash
 git clone https://github.com/Arm-China/Compass_Unified_Parser.git
+git clone https://github.com/Arm-China/Compass_OpportunePostTrainingTools.git
 ```
 
 2. You need to download `minpackage` from <https://aijishu.com/a/1060000000215443> under this directory. For detailed download steps, please refer to the post.
