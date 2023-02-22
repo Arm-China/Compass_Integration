@@ -7,27 +7,24 @@ import re
 from setuptools import setup, find_packages
 from distutils.core import setup
 from distutils.extension import Extension
-from wheel.bdist_wheel import bdist_wheel as _bdist_wheel
-
 import AIPUBuilder
 
-
-class bdist_wheel(_bdist_wheel):
-    def finalize_options(self):
-        _bdist_wheel.finalize_options(self)
-        self.root_is_pure = False
-
-
 __VERSION__ = AIPUBuilder.__VERSION__
+# env from Jenkins
 __build_number__ = os.getenv("BUILD_NUMBER")
+# env from build.sh
 __min_pkg_path__ = os.getenv("MINIPKG_PATH")
 
 assert __min_pkg_path__, "Cannot find mini package path (MINIPKG_PATH) in env"
 
+# __min_pkg_path__ e.g: 
+# Compass_MiniPkg-Release-x.x.x-Linux
+# Compass_MiniPkg-Debug-x.x.x-Linux
+
 if __build_number__ is not None and len(__build_number__) != 0:
     __build_number__ = ".open" + __build_number__
     __VERSION__ = __VERSION__ + str(__build_number__)
-    init_file = ["AIPUBuilder", "AIPUBuilder/UnifiedParser"]
+    init_file = ["AIPUBuilder", "AIPUBuilder/Parser"]
     for init_f in init_file:
         init_f = os.path.join(__min_pkg_path__, "AIPUBuilder",
                               "python", "src", init_f, "__init__.py")
@@ -42,14 +39,17 @@ if __build_number__ is not None and len(__build_number__) != 0:
 
 entry_points = """
     [console_scripts]
-    aipuparse = AIPUBuilder.UnifiedParser.univ_main:main
+    aipuparse = AIPUBuilder.Parser.univ_main:main
     aipuopt = AIPUBuilder.Optimizer.tools.optimizer_main:main
     aipugb = AIPUBuilder.CGBuilder:caipugb
     aipurun = AIPUBuilder.CGBuilder:caipurun
     aipubuild = AIPUBuilder.main:main
     aipubinutils = AIPUBuilder.CGBuilder:aipubinutils
     aipu_profiler = AIPUBuilder.Profiler.main:main
+    aipudumper = AIPUBuilder.CGBuilder:aipudumper
+    aipuchecker = AIPUBuilder.CGBuilder:aipuchecker
     aipugsim = AIPUBuilder.simplifier.main:main
+    aipuexe = AIPUBuilder.executor.main:main
     """
 
 setup(
