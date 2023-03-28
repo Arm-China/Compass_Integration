@@ -70,7 +70,7 @@ The following lists libraries that are required for the aipucc:
 * libpthread.so.0
 * libz.so.1
 * libtinfo.so.5
-* ... (see full requirements indside document of minipkg/aipu-toolchain)
+* ... (see full requirements in document of minipkg/aipu-toolchain)
 
 ```bash
 ./test.sh
@@ -78,4 +78,4 @@ The following lists libraries that are required for the aipucc:
 
 ## Document
 
-See the documentation in the /doc directory inside Compass_MiniPkg
+See the documentation in the /doc directory in Compass_MiniPkg

@@ -1,6 +1,6 @@
 # Compass Integration
 
-本项目用于构建可发布的软件包，软件内容来自 Compass_Unified_Parser 仓库 Compass_OpportunePostTrainingTools 仓库 和 Compass_MiniPkg 。
+本项目用于构建可发布的软件包，软件内容来自 `Compass_Unified_Parser` 仓库 `Compass_OpportunePostTrainingTools` 仓库 和 `Compass_MiniPkg` 。
 
 ## 准备事项
 
@@ -11,7 +11,7 @@ git clone https://github.com/Arm-China/Compass_Unified_Parser.git
 git clone https://github.com/Arm-China/Compass_OpportunePostTrainingTools.git
 ```
 
-你需要下载 minpackage 至仓库根目录，下载步骤请参考文章 https://aijishu.com/a/1060000000215443 。
+你需要下载 minpackage 至仓库根目录，下载步骤请参考文章 <https://aijishu.com/a/1060000000215443> 。
 
 > minpackage 是一个文件名为 Compass_MiniPkg-x.x.x-Linux.tar.gz 的 tarball 文件。
 
@@ -19,7 +19,7 @@ git clone https://github.com/Arm-China/Compass_OpportunePostTrainingTools.git
 
 ### 硬件
 
-Compass Integration 项目只能在 Linux x86_64 上构建。
+Compass Integration 项目只能在 `Linux x86_64` 上构建。
 
 ### 软件
 
@@ -57,7 +57,7 @@ export PATH=${MINIPKG_PATH}/tool-chain/debugger/bin:${PATH}
 
 ## 测试
 
-安装成功之后, 执行./test.sh 脚本可以检查所有模块是否正常工作。这个脚本仅仅测试了aipucc, aipu_simulator 和 aipubuild 工具的可用性。如果需要使用其他独立模块 (IDE, simulator, toolchain) 的完整功能，请根据对应的文档进行配置。
+安装成功之后, 执行 ./test.sh 脚本可以检查所有模块是否正常工作。这个脚本仅仅测试了 aipucc, aipu_simulator 和 aipubuild 工具的可用性。如果需要使用其他独立模块 (IDE, simulator, toolchain) 的完整功能，请根据对应的文档进行配置。
 例如，aipucc 依赖以下运行环境:
 
 * libpthread.so.0
