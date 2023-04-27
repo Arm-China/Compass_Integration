@@ -1,11 +1,11 @@
 #!/bin/bash -e
-# Copyright © 2022 Arm China Co. Ltd. All rights reserved.
+# Copyright © 2023 Arm China Co. Ltd. All rights reserved.
 # SPDX-License-Identifier: Apache-2.0
 
 # find release files
 MINIPKG_TAR_GZ=`ls | sort -r | grep -m 1 "Compass_MiniPkg.*tar.gz"`
 if [ ! -f "${MINIPKG_TAR_GZ}" ]; then
-    echo "Cannot find file Compass_MiniPkg_xxx.tar.gz, please download it"
+    echo "Cannot find file Compass_MiniPkg_xxx.tar.gz, please download it from https://aijishu.com/a/1060000000215443"
     exit 1
 fi
 export MINIPKG_PATH=$(basename $MINIPKG_TAR_GZ .tar.gz)
@@ -15,8 +15,8 @@ if [ ! -d "Compass_Unified_Parser" ]; then
     exit 1
 fi
 
-if [ ! -d "Compass_OpportunePostTrainingTools" ]; then
-    echo "Cannot find repository Compass_OpportunePostTrainingTools, please download it"
+if [ ! -d "Compass_Optimizer" ]; then
+    echo "Cannot find repository Compass_Optimizer, please download it"
     exit 1
 fi
 
@@ -30,8 +30,8 @@ ls ../../../../../Compass_Unified_Parser/AIPUBuilder/Parser # check exist
 ln -sf ../../../../../Compass_Unified_Parser/AIPUBuilder/Parser
 
 # link your Optimizer
-ls ../../../../../Compass_OpportunePostTrainingTools/AIPUBuilder/Optimizer # check exist
-ln -sf ../../../../../Compass_OpportunePostTrainingTools/AIPUBuilder/Optimizer
+ls ../../../../../Compass_Optimizer/AIPUBuilder/Optimizer # check exist
+ln -sf ../../../../../Compass_Optimizer/AIPUBuilder/Optimizer
 cd -
 
 # Test AIPUBuilder avaliable
