@@ -16,7 +16,7 @@ git clone https://github.com/Arm-China/Compass_Optimizer.git
 
 2. You need to download `minpackage` from <https://aijishu.com/a/1060000000215443> under this directory. For detailed download steps, please refer to the post.
 
-> The `minpackage` is a tarball file named Compass_MiniPkg-x.x.x-Linux.tar.gz
+> The `minpackage` is a tarball file named Compass_MiniPkg-Release-xxxxx-Linux.tar.gz, If the downloaded file name is very different, such as 1290841044-6422c77963ac7.tar.gz, Please rename it to the original file name in the post.
 
 ## Requirements
 
