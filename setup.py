@@ -99,7 +99,6 @@ setup(
         "sympy",
         "synr",
         "tensorflow>=2.6",
-        "tflite",
         "torch>=1.11",
         "torchvision",
         "tornado",
