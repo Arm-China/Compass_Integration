@@ -4,10 +4,10 @@
 
 ## 准备事项
 
-你需要从 [github] 或者 [gitea] clone 以下 repositories 至仓库根目录。
+你需要从 [github] 或者 [gitee] clone 以下 repositories 至仓库根目录。
 
 [github]: https://github.com/Arm-China
-[gitea]: https://gitee.com/Arm-China
+[gitee]: https://gitee.com/Arm-China
 
 ```bash
 git clone https://github.com/Arm-China/Compass_Unified_Parser.git

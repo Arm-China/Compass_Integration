@@ -4,10 +4,10 @@ This project builds a distribution package from `Compass_Unified_Parser`, `Compa
 
 ## Prepare
 
-1. You need to clone repositories from [github] or [gitea] under this directory.
+1. You need to clone repositories from [github] or [gitee] under this directory.
 
 [github]: https://github.com/Arm-China
-[gitea]: https://gitee.com/Arm-China
+[gitee]: https://gitee.com/Arm-China
 
 ```bash
 git clone https://github.com/Arm-China/Compass_Unified_Parser.git
