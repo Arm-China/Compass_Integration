@@ -66,6 +66,7 @@ entry_points = """
     aipuchecker = AIPUBuilder.CGBuilder:aipuchecker
     aipugsim = AIPUBuilder.simplifier.main:main
     aipuexe = AIPUBuilder.executor.main:main
+    aipuatt = AIPUBuilder.Optimizer.tools.NodeAttributesTuningTools.main:main
     """
 
 setup(
@@ -78,6 +79,7 @@ setup(
     package_data={
         '': [
             "*.so",
+            "*.o",
             "*.a"
         ]
     },
