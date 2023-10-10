@@ -1,4 +1,4 @@
-# Copyright © 2022 Arm China Co. Ltd. All rights reserved.
+# Copyright © 2022-2023 Arm China Co. Ltd. All rights reserved.
 # SPDX-License-Identifier: Apache-2.0
 
 import os
