@@ -1,6 +1,7 @@
 # Copyright © 2022-2023 Arm China Co. Ltd. All rights reserved.
 # SPDX-License-Identifier: Apache-2.0
 
+import AIPUBuilder
 import os
 import re
 
@@ -10,12 +11,13 @@ from distutils.extension import Extension
 from wheel.bdist_wheel import bdist_wheel as _bdist_wheel
 
 # Mark us as not a pure python package (we have platform specific C/C++ code)
+
+
 class bdist_wheel(_bdist_wheel):
     def finalize_options(self):
         _bdist_wheel.finalize_options(self)
         self.root_is_pure = False
 
-import AIPUBuilder
 
 __VERSION__ = AIPUBuilder.__VERSION__
 # env from Jenkins
@@ -37,19 +39,24 @@ if __build_number__ is not None and len(__build_number__) != 0:
     elif "opensource" in __job_name__.lower():
         __build_number__ = "open" + __build_number__
 
-    if __VERSION__.count('.') < 2: # 1.0 -> 1.0.xxx123
-        __VERSION__ = __VERSION__+ "." +str(__build_number__)
+    if __VERSION__.count('.') < 2:  # 1.0 -> 1.0.xxx123
+        __VERSION__ = __VERSION__ + "." + str(__build_number__)
 
-    init_file = ["AIPUBuilder", "AIPUBuilder/Parser"]
-    for init_f in init_file:
-        init_f = os.path.join(__min_pkg_path__, "AIPUBuilder",
-                              "python", "src", init_f, "__init__.py")
-        with open(init_f) as f:
+    # replace build_number
+    version_files = [
+        "AIPUBuilder/__init__.py",
+        "AIPUBuilder/Parser/__init__.py",
+        "AIPUBuilder/Optimizer/version.py"
+    ]
+    for version_file in version_files:
+        version_file = os.path.join(__min_pkg_path__, "AIPUBuilder",
+                                    "python", "src", version_file)
+        with open(version_file) as f:
             c = f.read()
             c = re.sub("__build_number__\s*=.+",
                        "__build_number__='"+__build_number__+"'", c)
         if len(c) != 0:
-            with open(init_f, "w") as f:
+            with open(version_file, "w") as f:
                 f.write(c)
 
 
