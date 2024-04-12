@@ -1,5 +1,5 @@
 #!/bin/bash -e
-# Copyright © 2022-2024 Arm China Co. Ltd. All rights reserved.
+# Copyright © 2022-2025 Arm China Co. Ltd. All rights reserved.
 # SPDX-License-Identifier: Apache-2.0
 
 # find release files

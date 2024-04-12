@@ -1,4 +1,4 @@
-# Copyright © 2022-2024 Arm China Co. Ltd. All rights reserved.
+# Copyright © 2022-2025 Arm China Co. Ltd. All rights reserved.
 # SPDX-License-Identifier: Apache-2.0
 
 import AIPUBuilder
@@ -116,7 +116,7 @@ setup(
     cmdclass={'bdist_wheel': bdist_wheel},
     entry_points=entry_points,
     classifiers=[
-        'Programming Language :: Python :: 3.8',
+        'Programming Language :: Python :: 3.10',
         'Programming Language :: Python :: Implementation :: CPython',
     ],
 )
