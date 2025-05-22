@@ -36,11 +36,12 @@ if __build_number__ is not None and len(__build_number__) != 0:
     # for internal release
     if "Debug" in __min_pkg_path__:
         __build_number__ = "dev" + __build_number__
-    elif "opensource" in __job_name__.lower():
-        __build_number__ = "open" + __build_number__
 
     if __VERSION__.count('.') < 2:  # 1.0 -> 1.0.xxx123
         __VERSION__ = __VERSION__ + "." + str(__build_number__)
+
+    if "opensource" in __job_name__.lower():
+        __VERSION__ = __VERSION__ + "+opensource"
 
     # replace build_number
     version_files = [
