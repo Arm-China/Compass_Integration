@@ -26,7 +26,7 @@ Compass Integration 项目只能在 `Linux x86_64` 上构建。
 
 ### 软件
 
-* python = 3.8
+* python = 3.10
 * pip
 * setuptools
 * wheel
