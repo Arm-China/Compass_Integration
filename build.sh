@@ -25,13 +25,11 @@ tar -xzvf ${MINIPKG_TAR_GZ}
 
 cd ${MINIPKG_PATH}/AIPUBuilder/python/src/AIPUBuilder
 
-# link your Parser
-ls ../../../../../Compass_Unified_Parser/AIPUBuilder/Parser # check exist
-ln -sf ../../../../../Compass_Unified_Parser/AIPUBuilder/Parser
+# copy your Parser
+cp -r ../../../../../Compass_Unified_Parser/AIPUBuilder/Parser ./
 
-# link your Optimizer
-ls ../../../../../Compass_Optimizer/AIPUBuilder/Optimizer # check exist
-ln -sf ../../../../../Compass_Optimizer/AIPUBuilder/Optimizer
+# copy your Optimizer
+cp -r ../../../../../Compass_Optimizer/AIPUBuilder/Optimizer ./
 cd -
 
 # Test AIPUBuilder avaliable
@@ -39,8 +37,12 @@ export PYTHONPATH=`pwd`/${MINIPKG_PATH}/AIPUBuilder/python/src:${PYTHONPATH}
 echo "Building AIPUBuilder under:"
 python3 -c "import AIPUBuilder;print(AIPUBuilder.__file__)"
 
+# clean last build file
+rm -rf build
+
 # build
-python3 setup.py bdist_wheel
+# if aarch64: -p linux_aarch64
+python3 setup.py bdist_wheel $@
 
 echo "Build done, your Python wheel package:"
 ls -alh dist

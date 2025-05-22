@@ -71,9 +71,17 @@ entry_points = """
     aipu_profiler = AIPUBuilder.Profiler.main:main
     aipudumper = AIPUBuilder.CGBuilder:aipudumper
     aipuchecker = AIPUBuilder.CGBuilder:aipuchecker
+    aipuestimator = AIPUBuilder.CGBuilder:aipuestimator
     aipugsim = AIPUBuilder.simplifier.main:main
     aipuexe = AIPUBuilder.executor.main:main
     aipuatt = AIPUBuilder.Optimizer.tools.NodeAttributesTuningTools.main:main
+    aipuforward = AIPUBuilder.Optimizer.tools.opt_forward_main:main
+    aipullm = AIPUBuilder.model.llmmain:main
+    aipuzip = AIPUBuilder.zipper.zip:main
+    aipuunzip = AIPUBuilder.zipper.unzip:main
+    aipuoas = AIPUBuilder._C.bin:aipuoas
+    aipuocc = AIPUBuilder._C.bin:aipuocc
+    aipuold = AIPUBuilder._C.bin:aipuold
     """
 
 setup(
@@ -83,13 +91,7 @@ setup(
     author='Neo WANG',
     packages=find_packages(__min_pkg_path__ + '/AIPUBuilder/python/src'),
     package_dir={'': __min_pkg_path__ + '/AIPUBuilder/python/src'},
-    package_data={
-        '': [
-            "*.so",
-            "*.o",
-            "*.a"
-        ]
-    },
+    include_package_data=True,  # goto MANIFEST.in
     install_requires=[
         "clang",
         "cloudpickle",
@@ -100,7 +102,8 @@ setup(
         "networkx",
         "onnx>=1.11",
         "onnxoptimizer",
-        "onnx-simplifier",
+        "onnxsim",
+        "pyfma",
         "opencv-python",
         "psutil",
         "PyYAML",
@@ -116,7 +119,7 @@ setup(
     cmdclass={'bdist_wheel': bdist_wheel},
     entry_points=entry_points,
     classifiers=[
-        'Programming Language :: Python :: 3.10',
+        'Programming Language :: Python :: 3',
         'Programming Language :: Python :: Implementation :: CPython',
     ],
 )

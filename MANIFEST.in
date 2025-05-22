@@ -1,0 +1,5 @@
+global-include *.so
+global-include *.o
+global-include *.a
+global-include *.json
+recursive-include **/AIPUBuilder/_C/ *
