@@ -44,7 +44,7 @@ Compass Integration 项目只能在 `Linux x86_64` 上构建。
 ## 安装
 
 ```bash
-pip3 install dist/AIPUBuilder-*-cp38-cp38-linux_x86_64.whl
+pip3 install dist/AIPUBuilder-*-linux_x86_64.whl
 # 提示: 如果没有 root 权限，请使用 `pip3 install --user` 或者 `pip3 install --target /YOUR_PATH` 命令
 
 # 如果使用了 --user 选项，不要忘了:

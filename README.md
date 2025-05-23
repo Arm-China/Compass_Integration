@@ -48,7 +48,7 @@ The `build.sh` script will build a **python wheel file** under the ./dist direct
 pip3 uninstall AIPUBuilder
 
 # Install
-pip3 install dist/AIPUBuilder-*-cp38-cp38-linux_x86_64.whl
+pip3 install dist/AIPUBuilder-*-linux_x86_64.whl
 # Tips: using `pip3 install --user` or `pip3 install --target /YOUR_PATH` if your don't have root premission
 
 # if using --user, don't forget:
