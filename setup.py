@@ -5,6 +5,7 @@ import AIPUBuilder
 import os
 import re
 
+from configparser import ConfigParser
 from setuptools import setup, find_packages
 from distutils.core import setup
 from distutils.extension import Extension
@@ -61,29 +62,16 @@ if __build_number__ is not None and len(__build_number__) != 0:
                 f.write(c)
 
 
-entry_points = """
-    [console_scripts]
-    aipuparse = AIPUBuilder.Parser.univ_main:main
-    aipuopt = AIPUBuilder.Optimizer.tools.optimizer_main:main
-    aipugb = AIPUBuilder.CGBuilder:caipugb
-    aipurun = AIPUBuilder.CGBuilder:caipurun
-    aipubuild = AIPUBuilder.main:main
-    aipubinutils = AIPUBuilder.CGBuilder:aipubinutils
-    aipu_profiler = AIPUBuilder.Profiler.main:main
-    aipudumper = AIPUBuilder.CGBuilder:aipudumper
-    aipuchecker = AIPUBuilder.CGBuilder:aipuchecker
-    aipuestimator = AIPUBuilder.CGBuilder:aipuestimator
-    aipugsim = AIPUBuilder.simplifier.main:main
-    aipuexe = AIPUBuilder.executor.main:main
-    aipuatt = AIPUBuilder.Optimizer.tools.NodeAttributesTuningTools.main:main
-    aipuforward = AIPUBuilder.Optimizer.tools.opt_forward_main:main
-    aipullm = AIPUBuilder.model.llmmain:main
-    aipuzip = AIPUBuilder.zipper.zip:main
-    aipuunzip = AIPUBuilder.zipper.unzip:main
-    aipuoas = AIPUBuilder._C.bin:aipuoas
-    aipuocc = AIPUBuilder._C.bin:aipuocc
-    aipuold = AIPUBuilder._C.bin:aipuold
-    """
+entry_points = {
+    'console_scripts': []
+}
+
+for entry_points_file in ["entry_points_parser.ini", "entry_points_opt.ini", "entry_points_minipkg.ini"]:
+    config = ConfigParser()
+    config.read(__min_pkg_path__ + '/AIPUBuilder/python/src/' + entry_points_file)
+    for k, v in config['console_scripts'].items():
+        entry_points['console_scripts'].append(f"{k} = {v}")
+
 
 setup(
     name="AIPUBuilder",
@@ -105,7 +93,6 @@ setup(
         "onnxoptimizer",
         "onnxsim",
         "pyfma",
-        "opencv-python",
         "psutil",
         "PyYAML",
         "scipy",
@@ -118,7 +105,7 @@ setup(
         "tqdm"
     ],
     cmdclass={'bdist_wheel': bdist_wheel},
-    entry_points=entry_points,
+    entry_points=entry_points, # goto entry_points.ini
     classifiers=[
         'Programming Language :: Python :: 3',
         'Programming Language :: Python :: Implementation :: CPython',
