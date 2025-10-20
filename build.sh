@@ -27,9 +27,11 @@ cd ${MINIPKG_PATH}/AIPUBuilder/python/src/AIPUBuilder
 
 # copy your Parser
 cp -r ../../../../../Compass_Unified_Parser/AIPUBuilder/Parser ./
+cp -r ../../../../../Compass_Unified_Parser/entry_points_parser.ini ../entry_points_parser.ini
 
 # copy your Optimizer
 cp -r ../../../../../Compass_Optimizer/AIPUBuilder/Optimizer ./
+cp -r ../../../../../Compass_Optimizer/entry_points_opt.ini ../entry_points_opt.ini
 cd -
 
 # Test AIPUBuilder avaliable
